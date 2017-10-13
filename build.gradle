@@ -1,0 +1,43 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.7.RELEASE'
+	}
+	repositories {
+		// mavenCentral()
+		maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.mumu.i18n.kit'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	// mavenCentral()
+	maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	// https://mvnrepository.com/artifact/org.apache.httpcomponents/fluent-hc
+	compile group: 'org.apache.httpcomponents', name: 'fluent-hc', version: '4.5.3'
+
+	// https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path
+	compile group: 'com.jayway.jsonpath', name: 'json-path', version: '2.4.0'
+
+	// https://mvnrepository.com/artifact/commons-io/commons-io
+	compile group: 'commons-io', name: 'commons-io', version: '2.5'
+
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
